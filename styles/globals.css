@@ -14,3 +14,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.css-iqffhx:hover,
+.css-iqffhx[data-hover] {
+  background: none;
+}

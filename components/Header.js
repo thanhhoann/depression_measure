@@ -97,6 +97,7 @@ export default function Header() {
                               variant="ghost"
                               as={Button}
                               leftIcon={<ChevronDownIcon />}
+                              borderColor="none"
                             >
                               {name}
                             </MenuButton>
