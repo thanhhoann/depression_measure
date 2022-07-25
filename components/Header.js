@@ -29,6 +29,7 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon, HamburgerIcon, AtSignIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
+import Image from "next/image";
 import { useDisclosure } from "@chakra-ui/react";
 
 const menuTitles = [
@@ -56,7 +57,12 @@ export default function Header() {
       >
         <GridItem>
           <Center h="100%" color="white">
-            <AtSignIcon />
+            <Image
+              width={50}
+              height={50}
+              layout="fixed"
+              src="https://img.icons8.com/color/344/depression.png"
+            />
           </Center>
         </GridItem>
         <GridItem>

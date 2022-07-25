@@ -24,7 +24,7 @@ export default function Home() {
           color="blackAlpha.700"
           fontWeight="bold"
         >
-          <GridItem bg="orange.300" area={"header"}>
+          <GridItem bg="whiteAlpha.700" area={"header"}>
             <Header />
           </GridItem>
           <GridItem bg="gray.900" area={"main"}>
