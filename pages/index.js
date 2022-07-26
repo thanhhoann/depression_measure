@@ -30,7 +30,7 @@ export default function Home() {
           <GridItem bg="gray.900" area={"main"}>
             <Body />
           </GridItem>
-          <GridItem bg="blue.300" area={"footer"}>
+          <GridItem bg="blackAlpha.300" area={"footer"}>
             <Footer />
           </GridItem>
         </Grid>

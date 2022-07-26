@@ -1,18 +1,8 @@
 import React from "react";
 import {
   Grid,
-  SimpleGrid,
-  Box,
   GridItem,
-  Heading,
-  Highlight,
   Center,
-  Wrap,
-  WrapItem,
-  Menu,
-  MenuItem,
-  MenuButton,
-  MenuList,
   Button,
   Show,
   Hide,
@@ -26,18 +16,14 @@ import {
   DrawerBody,
   DrawerFooter,
   VStack,
+  ButtonGroup,
+  Avatar,
 } from "@chakra-ui/react";
 import { ChevronDownIcon, HamburgerIcon, AtSignIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
 import Image from "next/image";
 import { useDisclosure } from "@chakra-ui/react";
-
-const menuTitles = [
-  { name: "About us", link: "#", isMenu: false },
-  { name: "Recommendations", link: "#", isMenu: true },
-  { name: "References", link: "#", isMenu: false },
-  { name: "Symptoms", link: "#", isMenu: true },
-];
+import HeaderItems from "./HeaderItems";
 
 export default function Header() {
   const BREAKPOINT_MENU = 990;
@@ -61,7 +47,8 @@ export default function Header() {
               width={50}
               height={50}
               layout="fixed"
-              src="https://img.icons8.com/color/344/depression.png"
+              src="https://img.icons8.com/dotty/344/depression.png"
+              alt="depression"
             />
           </Center>
         </GridItem>
@@ -89,35 +76,7 @@ export default function Header() {
                 <DrawerHeader></DrawerHeader>
                 <DrawerBody>
                   <VStack>
-                    {menuTitles.map(({ name, link, isMenu }, index) => (
-                      <Box key={index} py="1rem">
-                        {isMenu ? (
-                          <Menu>
-                            <MenuButton
-                              variant="ghost"
-                              as={Button}
-                              leftIcon={<ChevronDownIcon />}
-                              borderColor="none"
-                            >
-                              {name}
-                            </MenuButton>
-                            <MenuList>
-                              <MenuItem>Download</MenuItem>
-                              <MenuItem>Create a Copy</MenuItem>
-                              <MenuItem>Mark as Draft</MenuItem>
-                              <MenuItem>Delete</MenuItem>
-                              <MenuItem>Attend a Workshop</MenuItem>
-                            </MenuList>
-                          </Menu>
-                        ) : (
-                          <Button variant="ghost">
-                            <NextLink href={link}>
-                              <Link>{name}</Link>
-                            </NextLink>
-                          </Button>
-                        )}
-                      </Box>
-                    ))}
+                    <HeaderItems />
                   </VStack>
                 </DrawerBody>
                 <DrawerFooter></DrawerFooter>
@@ -125,36 +84,9 @@ export default function Header() {
             </Drawer>
           </Show>
           <Show breakpoint={`(min-width: ${BREAKPOINT_MENU}px)`}>
-            <Wrap justify="space-around">
-              {menuTitles.map(({ name, link, isMenu }, index) => (
-                <WrapItem key={index} py="1rem">
-                  {isMenu ? (
-                    <Menu>
-                      <MenuButton
-                        variant="ghost"
-                        as={Button}
-                        leftIcon={<ChevronDownIcon />}
-                      >
-                        {name}
-                      </MenuButton>
-                      <MenuList>
-                        <MenuItem>Download</MenuItem>
-                        <MenuItem>Create a Copy</MenuItem>
-                        <MenuItem>Mark as Draft</MenuItem>
-                        <MenuItem>Delete</MenuItem>
-                        <MenuItem>Attend a Workshop</MenuItem>
-                      </MenuList>
-                    </Menu>
-                  ) : (
-                    <Button variant="ghost">
-                      <NextLink href={link}>
-                        <Link>{name}</Link>
-                      </NextLink>
-                    </Button>
-                  )}
-                </WrapItem>
-              ))}
-            </Wrap>
+            <Flex justifyContent="space-around" alignItems="center">
+              <HeaderItems />
+            </Flex>
           </Show>
         </GridItem>
       </Grid>
