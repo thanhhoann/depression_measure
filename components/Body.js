@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Heading,
   Center,
@@ -6,8 +7,19 @@ import {
   Text,
   SimpleGrid,
   Box,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalCloseButton,
+  ModalBody,
+  FormControl,
+  FormLabel,
+  Input,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import { useDisclosure } from "@chakra-ui/react";
 
 const features = [
   {
@@ -33,6 +45,11 @@ const features = [
 ];
 
 const Body = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const initialRef = React.useRef(null);
+  const finalRef = React.useRef(null);
+
   return (
     <>
       <VStack>
@@ -43,15 +60,29 @@ const Body = () => {
           color="white"
           textAlign="center"
         >
-          <Text fontSize="4xl">15 minutes of online assistance per day</Text>
+          <Text px="1rem" fontSize="4xl">
+            15 minutes of online assistance per day
+          </Text>
           <Text fontSize="1xl">
             free of stress, anxiety, fatigue, burnout or depression
           </Text>
-          <Button colorScheme="orange" variant="outline" w="10rem">
-            <Heading size="1xl">Start the test</Heading>
+          {/* action button */}
+          <Button
+            colorScheme="white"
+            variant="outline"
+            w="10rem"
+            onClick={onOpen}
+          >
+            Start the test
           </Button>
         </VStack>
-        <SimpleGrid columns={2} spacing="3rem" w="100%" bg="white" p={5}>
+        <SimpleGrid
+          columns={{ md: 1, lg: 2 }}
+          spacing="3rem"
+          w="100%"
+          bg="white"
+          p={5}
+        >
           {features.map(({ icon, content }, index) => (
             <Box
               display="flex"
@@ -61,18 +92,49 @@ const Body = () => {
             >
               <Image
                 src={icon}
-                width="50rem"
-                height="50rem"
+                width="80rem"
+                height="80rem"
                 layout="fixed"
                 alt={icon}
               />
-              <Text ml={4} maxWidth="20rem">
+              <Text ml="3rem" maxWidth="20rem">
                 {content}
               </Text>
             </Box>
           ))}
         </SimpleGrid>
       </VStack>
+
+      <Modal
+        initialFocusRef={initialRef}
+        finalFocusRef={finalRef}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Create your account</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+            <FormControl>
+              <FormLabel>First name</FormLabel>
+              <Input ref={initialRef} placeholder="First name" />
+            </FormControl>
+
+            <FormControl mt={4}>
+              <FormLabel>Last name</FormLabel>
+              <Input placeholder="Last name" />
+            </FormControl>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3}>
+              Save
+            </Button>
+            <Button onClick={onClose}>Cancel</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   );
 };
