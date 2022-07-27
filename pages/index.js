@@ -27,9 +27,8 @@ export default function Home() {
                   "header header"
                   "main main"
                   "footer footer"`}
-          gridTemplateRows={"2rem 4rem 1fr 40rem"}
+          gridTemplateRows={"2rem 4rem 1fr 4rem"}
           gridTemplateColumns={"1fr 1fr"}
-          gap="1"
           fontWeight="bold"
         >
           <GridItem
@@ -38,6 +37,7 @@ export default function Home() {
             color="white"
             position="sticky"
             top="0"
+            zIndex={999999}
           >
             <Flex alignItems="center" justifyContent="center" h="100%">
               <Box>
@@ -53,13 +53,19 @@ export default function Home() {
               </Box>
             </Flex>
           </GridItem>
-          <GridItem bg="white" area={"header"} position="sticky" top="2rem">
+          <GridItem
+            bg="white"
+            area={"header"}
+            position="sticky"
+            top="2rem"
+            zIndex={999999}
+          >
             <Header />
           </GridItem>
           <GridItem bg="black" area={"main"}>
             <Body />
           </GridItem>
-          <GridItem bg="black" area={"footer"}>
+          <GridItem area={"footer"}>
             <Footer />
           </GridItem>
         </Grid>

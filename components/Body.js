@@ -54,34 +54,43 @@ const Body = () => {
     <>
       <VStack>
         <VStack
-          spacing={4}
-          py="24"
+          spacing="3rem"
+          py="3rem"
           align="center"
-          color="white"
+          bg="white"
           textAlign="center"
+          w="100%"
         >
-          <Text px="1rem" fontSize="4xl">
-            15 minutes of online assistance per day
-          </Text>
-          <Text fontSize="1xl">
-            free of stress, anxiety, fatigue, burnout or depression
-          </Text>
+          <Box>
+            <Text px="1rem" fontSize="4xl">
+              15 minutes of online assistance per day
+            </Text>
+            <Text fontSize="1xl">
+              Start the test free of stress, anxiety, fatigue, burnout or
+              depression
+            </Text>
+          </Box>
           {/* action button */}
           <Button
             colorScheme="white"
             variant="outline"
-            w="10rem"
+            w="12rem"
+            h="3rem"
             onClick={onOpen}
+            boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;"
+            border="none"
           >
-            Start the test
+            START THE TEST
           </Button>
         </VStack>
+
         <SimpleGrid
           columns={{ md: 1, lg: 2 }}
           spacing="3rem"
           w="100%"
-          bg="white"
-          p={5}
+          color="white"
+          py="5rem"
+          px="2rem"
         >
           {features.map(({ icon, content }, index) => (
             <Box
@@ -90,13 +99,15 @@ const Body = () => {
               alignItems="center"
               key={index}
             >
-              <Image
-                src={icon}
-                width="80rem"
-                height="80rem"
-                layout="fixed"
-                alt={icon}
-              />
+              <Box w="5rem" h="5rem" pos="relative">
+                <Image
+                  src={icon}
+                  width="8rem"
+                  height="8rem"
+                  layout="fill"
+                  alt={icon}
+                />
+              </Box>
               <Text ml="3rem" maxWidth="20rem">
                 {content}
               </Text>
@@ -104,6 +115,53 @@ const Body = () => {
           ))}
         </SimpleGrid>
       </VStack>
+
+      <SimpleGrid
+        columns={{ md: 1, lg: 2 }}
+        spacing="3rem"
+        w="100%"
+        bg="white"
+        px="5rem"
+        py="4rem"
+        justifyItems="center"
+      >
+        <Box
+          w="90%"
+          p="2rem"
+          borderRadius="1rem"
+          boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;"
+        >
+          <Text mb="2rem" fontSize="2rem">
+            How does online assistance 15Minutes4Me.rom work?
+          </Text>
+          <Text>
+            During the program you get to know yourself better, gradually
+            distinguishing what helps you from what holds you back. You get
+            questions that help you discover the solutions that helped you move
+            forward. By increasing your self-confidence you learn to look for
+            and find solutions yourself.
+          </Text>
+        </Box>
+        <Box
+          w="90%"
+          p="2rem"
+          borderRadius="1rem"
+          boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;"
+        >
+          <Text mb="2rem" fontSize="1.8rem">
+            What does the program offer?
+          </Text>
+          <Text>
+            Understanding and realizing that you can solve your problem is the
+            first step towards a life with more enjoyment. The program asks you
+            solution-focused questions so that, with the help of self-control
+            exercises to stop negative thoughts, you will come to realize that
+            your problems will be solved. This is done by means of, amongst
+            others, video clips with exercises, charts for you and your GP,
+            theoretical insights, etc.
+          </Text>
+        </Box>
+      </SimpleGrid>
 
       <Modal
         initialFocusRef={initialRef}

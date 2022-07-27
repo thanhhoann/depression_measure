@@ -35,14 +35,14 @@ export default function Header() {
       <Grid
         gridTemplateRows={"1fr"}
         gridTemplateColumns={"1fr 2fr"}
-        color="blackAlpha.700"
+        color="black"
         fontWeight="bold"
-        align="center"
-        h="100%"
+        alignItems="center"
         px="2rem"
+        h="100%"
       >
         <GridItem>
-          <Center h="100%" color="white">
+          <Center h="90%" color="white">
             <Image
               width={50}
               height={50}
@@ -54,9 +54,9 @@ export default function Header() {
         </GridItem>
         <GridItem>
           <Show breakpoint={`(max-width: ${BREAKPOINT_MENU}px)`}>
-            <Flex h="100%" align="center" justify="flex-end">
+            <Flex h="90%" align="center" justify="flex-end">
               <Button
-                colorScheme="blackAlpha"
+                colorScheme="black"
                 variant="ghost"
                 ref={btnRef}
                 onClick={onOpen}
@@ -64,6 +64,7 @@ export default function Header() {
                 <HamburgerIcon />
               </Button>
             </Flex>
+
             <Drawer
               isOpen={isOpen}
               placement="top"
@@ -71,7 +72,7 @@ export default function Header() {
               finalFocusRef={btnRef}
             >
               <DrawerOverlay />
-              <DrawerContent>
+              <DrawerContent mt="3rem">
                 <DrawerCloseButton />
                 <DrawerHeader></DrawerHeader>
                 <DrawerBody>
@@ -83,8 +84,9 @@ export default function Header() {
               </DrawerContent>
             </Drawer>
           </Show>
+
           <Show breakpoint={`(min-width: ${BREAKPOINT_MENU}px)`}>
-            <Flex justifyContent="space-around" alignItems="center">
+            <Flex h="90%" justifyContent="space-around" alignItems="center">
               <HeaderItems />
             </Flex>
           </Show>
