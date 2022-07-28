@@ -17,34 +17,34 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Depression</title>
+        <title>Depression Measure</title>
         <meta name="description" content="bla bla bla" />
       </Head>
 
       <main>
         <Grid
-          templateAreas={`"auth auth"
-                  "header header"
+          templateAreas={`"header header"
                   "main main"
                   "footer footer"`}
-          gridTemplateRows={"2rem 4rem 1fr 4rem"}
+          gridTemplateRows={"4rem 1fr 4rem"}
           gridTemplateColumns={"1fr 1fr"}
           fontWeight="bold"
         >
-          <GridItem
+          {/* <GridItem
             bg="black"
             area={"auth"}
             color="white"
             position="sticky"
             top="0"
             zIndex={999999}
+            fontSize="0.8rem"
           >
             <Flex alignItems="center" justifyContent="center" h="100%">
               <Box>
                 <Link>LOG IN</Link>
               </Box>
-              <Box mx="1rem" h="100%">
-                <Box h="10%" w="100%">
+              <Box mx="1rem" h="80%">
+                <Box h="100%" w="100%">
                   .
                 </Box>
               </Box>
@@ -52,12 +52,12 @@ export default function Home() {
                 <Link>CREATE ACCOUNT</Link>
               </Box>
             </Flex>
-          </GridItem>
+          </GridItem> */}
           <GridItem
             bg="white"
             area={"header"}
             position="sticky"
-            top="2rem"
+            top="0"
             zIndex={999999}
           >
             <Header />

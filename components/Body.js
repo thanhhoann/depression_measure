@@ -20,6 +20,7 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { useDisclosure } from "@chakra-ui/react";
+import Newsletter from "./Newsletter";
 
 const features = [
   {
@@ -61,11 +62,11 @@ const Body = () => {
           textAlign="center"
           w="100%"
         >
-          <Box>
+          <Box px="1rem">
             <Text px="1rem" fontSize="4xl">
               15 minutes of online assistance per day
             </Text>
-            <Text fontSize="1xl">
+            <Text px="2rem" fontSize="1xl">
               Start the test free of stress, anxiety, fatigue, burnout or
               depression
             </Text>
@@ -79,6 +80,10 @@ const Body = () => {
             onClick={onOpen}
             boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;"
             border="none"
+            _hover={{
+              transform: "translateY(-1px)",
+              boxShadow: "lg",
+            }}
           >
             START THE TEST
           </Button>
@@ -163,34 +168,26 @@ const Body = () => {
         </Box>
       </SimpleGrid>
 
+      <Newsletter />
+
       <Modal
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}
         isOpen={isOpen}
         onClose={onClose}
+        isCentered
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Create your account</ModalHeader>
+          <ModalHeader></ModalHeader>
           <ModalCloseButton />
-          <ModalBody pb={6}>
-            <FormControl>
-              <FormLabel>First name</FormLabel>
-              <Input ref={initialRef} placeholder="First name" />
-            </FormControl>
-
-            <FormControl mt={4}>
-              <FormLabel>Last name</FormLabel>
-              <Input placeholder="Last name" />
-            </FormControl>
+          <ModalBody>
+            <Center>
+              <Heading>ARE YOU SURE ?</Heading>
+            </Center>
           </ModalBody>
 
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3}>
-              Save
-            </Button>
-            <Button onClick={onClose}>Cancel</Button>
-          </ModalFooter>
+          <ModalFooter></ModalFooter>
         </ModalContent>
       </Modal>
     </>
