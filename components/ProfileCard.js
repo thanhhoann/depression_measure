@@ -27,7 +27,7 @@ export default function ProfileCard({
   bank_account,
 }) {
   const buttons = [
-    { content: phone_number, content_name: "Phone Number" },
+    { content: phone_number, content_name: "Phone" },
     { content: bank_account, content_name: "Bank Account" },
   ];
 
@@ -63,7 +63,7 @@ export default function ProfileCard({
           <Stack spacing={0} align={"center"} textAlign="center">
             <Text fontWeight={600}>{phone_number}</Text>
             <Text fontSize={"sm"} color={"gray.500"}>
-              Phone Number
+              Phone
             </Text>
           </Stack>
           <Stack spacing={0} align={"center"}>
@@ -95,7 +95,7 @@ const CopyButton = ({ content, content_name }) => {
   return (
     <Button
       w={"full"}
-      bg={useColorModeValue("gray.700", "gray.700")}
+      bg={useColorModeValue("gray.800", "gray.700")}
       color="white"
       rounded={"md"}
       _hover={{

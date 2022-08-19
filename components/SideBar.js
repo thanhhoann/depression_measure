@@ -101,13 +101,13 @@ const SidebarContent = ({ onClose, ...rest }) => {
   return (
     <Box
       transition="3s ease"
-      bg={useColorModeValue("gray.900", "gray.900")}
+      bg={useColorModeValue(".500", "gray.900")}
+      color={useColorModeValue("black", "white")}
       borderRight="1px"
-      borderRightColor={useColorModeValue("gray.200", "gray.700")}
+      borderColor={useColorModeValue("gray.100", "gray.700")}
       w={{ base: "full", md: 60 }}
       pos="fixed"
       h="full"
-      color="white"
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
@@ -143,7 +143,7 @@ const NavItem = ({ icon, name, children, ...rest }) => {
       role="group"
       cursor="pointer"
       _hover={{
-        bg: useColorModeValue("gray.800", "gray.700"),
+        bg: useColorModeValue("gray.900", "gray.700"),
         color: useColorModeValue("white", "white"),
       }}
       {...rest}
@@ -169,8 +169,8 @@ const MobileNav = ({ onOpen, name, profile_img, ...rest }) => {
       px={{ base: 4, md: 4 }}
       height="20"
       alignItems="center"
-      bg={useColorModeValue("gray.900", "gray.800")}
-      color="white"
+      bg={useColorModeValue("white", "gray.800")}
+      color={useColorModeValue("black", "white")}
       borderBottomWidth="1px"
       borderBottomColor={useColorModeValue("gray.200", "gray.700")}
       justifyContent={{ base: "space-between" }}
@@ -187,7 +187,7 @@ const MobileNav = ({ onOpen, name, profile_img, ...rest }) => {
         icon={<FiMenu />}
         border="1px solid white"
         _hover={{
-          bg: "gray.700",
+          bg: useColorModeValue("gray.200", "gray.700"),
         }}
       />
 
@@ -206,7 +206,11 @@ const MobileNav = ({ onOpen, name, profile_img, ...rest }) => {
       </Text>
 
       <HStack spacing={{ base: "0", md: "6" }} justifyContent="space-around">
-        <ColorModeSwicher light_hover="gray.700" dark_hover="gray.700" />
+        <ColorModeSwicher
+          light="black"
+          light_hover="gray.200"
+          dark_hover="gray.700"
+        />
         {/* <IconButton
           size="lg"
           variant="ghost"
