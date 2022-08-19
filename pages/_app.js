@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
         profile_img: localStorage.getItem("user_profile_img"),
       });
     }
-  });
+  }, []);
 
   return (
     <ChakraProvider>

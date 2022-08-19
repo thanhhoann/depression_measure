@@ -33,7 +33,7 @@ export default function HeaderItems() {
                 variant="ghost"
                 as={Button}
                 leftIcon={<ChevronDownIcon />}
-                borderColor="none"
+                useColorModeValue(borderColor.light,borderColor.dark)="none"
               >
                 {name}
               </MenuButton>

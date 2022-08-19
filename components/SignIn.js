@@ -40,10 +40,11 @@ export default function SignIn(props) {
     }
   };
 
-  const parentBg = useColorModeValue("gray.800", "gray.900");
-  const childBg = useColorModeValue("gray.700", "gray.800");
+  const parentBg = useColorModeValue("gray.500", "gray.900");
+  const childBg = useColorModeValue("gray.400", "gray.800");
+  const buttonBg = useColorModeValue("gray.500", "gray.700");
+  const borderColor = useColorModeValue("black", "white");
   const titleBg = useColorModeValue("gray.800", "gray.700");
-  const buttonBg = useColorModeValue("gray.600", "gray.700");
 
   return (
     <>
@@ -65,7 +66,7 @@ export default function SignIn(props) {
           boxShadow={"lg"}
           p={6}
           my={12}
-          border="1px solid white"
+          border={`1px solid ${borderColor}`}
         >
           <Center w="100%">
             <Image
@@ -85,20 +86,19 @@ export default function SignIn(props) {
               />
             </Flex>
           ) : (
-            <Stack spacing={6} alignItems="center" color="white">
+            <Stack spacing={6} alignItems="center" color={borderColor}>
               <HStack>
                 <PinInput
                   type="number"
                   size="lg"
                   onChange={(e) => setUserInput(e)}
                   border="1px solid black"
-                  color="white"
                   mask
                 >
-                  <PinInputField borderColor="white" />
-                  <PinInputField borderColor="white" />
-                  <PinInputField borderColor="white" />
-                  <PinInputField borderColor="white" />
+                  <PinInputField borderColor={borderColor} />
+                  <PinInputField borderColor={borderColor} />
+                  <PinInputField borderColor={borderColor} />
+                  <PinInputField borderColor={borderColor} />
                 </PinInput>
               </HStack>
 
@@ -108,7 +108,7 @@ export default function SignIn(props) {
                 color="white"
                 boxShadow="2xl"
                 onClick={handleSubmit}
-                border="1px solid white"
+                border={`1px solid ${borderColor}`}
                 //     _hover={{
                 //       background: useColorModeValue("gray.400", "gray.600"),
                 //     }}
@@ -118,7 +118,11 @@ export default function SignIn(props) {
             </Stack>
           )}
         </Stack>
-        <ColorModeSwicher light_hover="gray.700" dark_hover="gray.800" />
+        <ColorModeSwicher
+          light="black"
+          light_hover="gray.400"
+          dark_hover="gray.800"
+        />
       </Flex>
     </>
   );

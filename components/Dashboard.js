@@ -5,7 +5,7 @@ import getData from "./utils/getData";
 export default function Dashboard() {
   const people = getData();
   return (
-    <>
+    <SimpleGrid columns={{ sm: 1, md: 1, lg: 2 }} gap="1rem">
       {people.map(
         (
           {
@@ -32,6 +32,6 @@ export default function Dashboard() {
           </Box>
         )
       )}
-    </>
+    </SimpleGrid>
   );
 }

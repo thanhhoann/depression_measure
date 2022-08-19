@@ -48,12 +48,12 @@ const config = {
         primaryGhost: {
           bg: "transparent",
           border: "1px solid",
-          borderColor: "primary",
+          useColorModeValue(borderColor.light,borderColor.dark): "primary",
         },
         secondaryGhost: {
           bg: "transparent",
           border: "1px solid",
-          borderColor: "secondary",
+          useColorModeValue(borderColor.light,borderColor.dark): "secondary",
           _hover: {
             color: "#fff",
             bg: "#BB1415",

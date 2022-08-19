@@ -23,6 +23,7 @@ import {
   MenuList,
   Button,
   useColorMode,
+  Badge,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -57,8 +58,14 @@ const LinkItems = [
 export default function SideBar({ children, name, profile_img }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const parentBg = useColorModeValue("gray.500", "gray.900");
+  const childBg = useColorModeValue("gray.400", "gray.800");
+  const buttonBg = useColorModeValue("gray.500", "gray.700");
+  const borderColor = useColorModeValue("black", "white");
+  const titleBg = useColorModeValue("gray.800", "gray.700");
+
   return (
-    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
+    <Box minH="100vh">
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
@@ -94,12 +101,13 @@ const SidebarContent = ({ onClose, ...rest }) => {
   return (
     <Box
       transition="3s ease"
-      bg={useColorModeValue("white", "gray.900")}
+      bg={useColorModeValue("gray.900", "gray.900")}
       borderRight="1px"
       borderRightColor={useColorModeValue("gray.200", "gray.700")}
       w={{ base: "full", md: 60 }}
       pos="fixed"
       h="full"
+      color="white"
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
@@ -161,7 +169,8 @@ const MobileNav = ({ onOpen, name, profile_img, ...rest }) => {
       px={{ base: 4, md: 4 }}
       height="20"
       alignItems="center"
-      bg={useColorModeValue("white", "gray.900")}
+      bg={useColorModeValue("gray.900", "gray.800")}
+      color="white"
       borderBottomWidth="1px"
       borderBottomColor={useColorModeValue("gray.200", "gray.700")}
       justifyContent={{ base: "space-between" }}
@@ -176,11 +185,15 @@ const MobileNav = ({ onOpen, name, profile_img, ...rest }) => {
         variant="outline"
         aria-label="open menu"
         icon={<FiMenu />}
+        border="1px solid white"
+        _hover={{
+          bg: "gray.700",
+        }}
       />
 
       {/* page title */}
       <Box>
-        <Heading fontSize="1.5rem">{currentPage.toUpperCase()}</Heading>
+        <Text fontSize="1.5rem">{currentPage.toUpperCase()}</Text>
       </Box>
 
       <Text
@@ -193,18 +206,14 @@ const MobileNav = ({ onOpen, name, profile_img, ...rest }) => {
       </Text>
 
       <HStack spacing={{ base: "0", md: "6" }} justifyContent="space-around">
-        <ColorModeSwicher
-          light="black"
-          light_hover="gray.100"
-          dark_hover="gray.700"
-        />
+        <ColorModeSwicher light_hover="gray.700" dark_hover="gray.700" />
         {/* <IconButton
           size="lg"
           variant="ghost"
           aria-label="open menu"
           icon={<FiBell />}
         /> */}
-        <Flex alignItems={"center"}>
+        <Flex alignItems={"center"} color={useColorModeValue("black", "white")}>
           <Menu>
             <MenuButton
               py={2}

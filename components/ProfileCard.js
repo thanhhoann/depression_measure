@@ -15,6 +15,7 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import { FiCopy } from "react-icons/fi";
+import { childBg, CommonColors } from "./CommonColors";
 
 export default function ProfileCard({
   name,
@@ -31,13 +32,7 @@ export default function ProfileCard({
   ];
 
   return (
-    <Box
-      bg={useColorModeValue("white", "gray.800")}
-      boxShadow={"2xl"}
-      rounded={"md"}
-      overflow={"hidden"}
-      mb="2rem"
-    >
+    <Box bg={childBg} boxShadow={"2xl"} rounded={"md"} overflow={"hidden"}>
       <Image
         h={"120px"}
         w={"full"}
@@ -94,27 +89,20 @@ export default function ProfileCard({
 }
 
 const CopyButton = ({ content, content_name }) => {
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = React.useState(content);
   const { hasCopied, onCopy } = useClipboard(value);
-
-  const handleCopy = (field) => {
-    for (let i = 0; i < 2; i++) {
-      setValue(field);
-      onCopy();
-    }
-  };
 
   return (
     <Button
       w={"full"}
-      bg={useColorModeValue("#151f21", "gray.900")}
+      bg={useColorModeValue("gray.700", "gray.700")}
       color="white"
       rounded={"md"}
       _hover={{
         transform: "translateY(-2px)",
         boxShadow: "lg",
       }}
-      onClick={() => handleCopy(content)}
+      onClick={() => onCopy()}
     >
       <Flex gap="0.5rem">
         <FiCopy /> {content_name}
